@@ -16,14 +16,6 @@ var findUnsortedSubarray = function(nums) {
         }
     }
     
-    // for ( var i = nums.length - 1; i >= 0; i-- ) {
-    //     if ( nums[i - 1] > nums[i] && nums[i + 1] > nums[i] ) {
-    //         btm_peak = Math.min(btm_peak, nums[i]);
-    //     }
-    // }
-    
-    console.log('tp, bp: ', top_peak, btm_peak);
-    
     for ( var i = 0; i < nums.length; i++ ) {
         if ( top_peak > nums[i] ) {
             end = Math.max(end, i);
@@ -35,8 +27,6 @@ var findUnsortedSubarray = function(nums) {
             start = Math.min(start, i);
         }
     }
-    
-    console.log('start, end: ', start, end);
     
     if ( start >= end || top_peak == btm_peak ) {
         return 0;
