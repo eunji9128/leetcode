@@ -7,13 +7,11 @@ var strStr = function(haystack, needle) {
     const match = getPartialMatch(needle);
     let idx = 0;
     let sub_idx = 0;
-    console.log(match);
     
     while ( idx < haystack.length ) {
         if ( haystack[idx] != needle[sub_idx] ) {
             if ( sub_idx != 0 ) {
                 sub_idx = match[sub_idx - 1];
-                console.log('match idx: ', sub_idx);
             } else {
                 idx += 1;
             }
@@ -23,10 +21,7 @@ var strStr = function(haystack, needle) {
             }
             idx += 1;
             sub_idx += 1;
-            console.log('idx, sub: ', idx, sub_idx);
-        }
-        console.log('try idx: ', idx);
-        
+        }   
     }
     return -1;
 };
