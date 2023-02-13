@@ -8,5 +8,16 @@ var isAnagram = function(s, t) {
         return false
     };
     
-    return s.split("").sort().join() === t.split("").sort().join()
+    const map = new Map();
+    
+    for (let char of s) {
+        map.set(char, map.get(char) + 1 || 1);
+    };
+    
+    for (let char of t) {
+        if (!map.get(char)) return false;
+        map.set(char, map.get(char) - 1);
+    };
+    
+    return true
 };
