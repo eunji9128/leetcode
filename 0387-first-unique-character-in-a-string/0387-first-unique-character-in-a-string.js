@@ -7,7 +7,7 @@ var firstUniqChar = function(s) {
     s = s.split("");
     
     for(let i = 0; i < s.length; i++){
-        if (map.get(s[i]) === undefined) {
+        if (!map.has(s[i])) {
             map.set(s[i], i);
         } else {
             map.set(s[i], -1);
