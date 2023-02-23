@@ -14,20 +14,15 @@ var removeElements = function(head, val) {
     let prevNode = head;
     let crntNode = (head === null ? null : head.next);
     
-    // console.log(head);
-    
     while (crntNode) {
-        // console.log('try');
         if (prevNode.val === val) {
             head = head.next;
             prevNode = head;
             crntNode = head.next;
             continue;
-            // console.log('head1: ', head);
         } else if (crntNode.val === val) {
             prevNode.next = crntNode.next;
             crntNode = crntNode.next;
-            // console.log('head2: ', head);
             continue;
         }
         prevNode = prevNode.next;
