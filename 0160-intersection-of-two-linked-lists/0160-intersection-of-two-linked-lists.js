@@ -14,20 +14,10 @@
 var getIntersectionNode = function(headA, headB) {
     let nodeA = headA;
     let nodeB = headB;
-    let count = 0;
     
     while (nodeA !== nodeB) {
-        if (count > 2) {
-            return false;
-        }
-        if (nodeA && nodeB) {
-            nodeA = nodeA.next;
-            nodeB = nodeB.next;
-        } else {
-            nodeA = (nodeA || headB);
-            nodeB = (nodeB || headA);
-            count++;
-        }
+        nodeA = (nodeA === null ? headB : nodeA.next);
+        nodeB = (nodeB === null ? headA : nodeB.next);
     }
     return nodeA;
 };
